@@ -1,0 +1,59 @@
+1. {insert into mydb.dojos (name, created_at, updated)
+
+values('dojo1', current_timestamp(),now());
+insert into mydb.dojos (name, created_at, updated)
+
+values('dojo2', current_timestamp(),now());
+
+insert into mydb.dojos (name, created_at, updated)
+
+values('dojo3', current_timestamp(),now());}
+ 
+
+2. {delete from mydb.dojos }
+
+
+3. {values('dojo1', current_timestamp(),now());
+insert into mydb.dojos (name, created_at, updated)
+
+values('dojo2', current_timestamp(),now());
+
+insert into mydb.dojos (name, created_at, updated)
+
+values('dojo3', current_timestamp(),now());}
+
+4. {insert into mydb.ninjas (first_name, last_name, age, created_at, updated_at,dojos_id )
+values('tom', 'cat', 47, now(),now(),5)}
+
+
+insert into mydb.ninjas (first_name, last_name, age, created_at, updated_at,dojos_id )
+values('sun', 'tzu', 34, now(),now(),5)
+
+
+
+
+5. insert into mydb.ninjas (first_name, last_name, age, created_at, updated_at,dojos_id )
+values('tyler', 'creator', 21, now(),now(),6);
+
+values('robbin', 'banks', 42, now(),now(),6);
+
+values('bill', 'nye', 25, now(),now(),6);
+
+6. insert into mydb.ninjas (first_name, last_name, age, created_at, updated_at,dojos_id )
+values('kyle', 'chadderson', 12, now(),now(),7);
+values('jax', 'reynolds', 17, now(),now(),7);
+values('will', 'smith', 55, now(),now(),7);
+
+7. select* 
+from mydb.ninjas
+where dojos_id = 5
+
+
+8.select* 
+from mydb.ninjas
+where dojos_id = 7
+
+
+9.select* 
+from mydb.ninjas
+where id = 9

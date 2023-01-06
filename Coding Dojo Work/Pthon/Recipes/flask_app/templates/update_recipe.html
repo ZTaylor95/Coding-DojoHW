@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!--my css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Edit Recipe</title>
+</head>
+<body> 
+    <h1>
+        Edit Recipe
+    </h1>
+    <p>
+        <a href="/recipes">
+            Back to recipes
+        </a>
+    </p>
+    <p>
+        <a href="/user/logout">
+            Logout
+        </a>
+    </p>
+<form method="POST" action="/recipes/update/{{current_recipe.id}}">
+        <div>
+            <label>
+                Name:
+            </label>
+            <input type="text" name="name" value="{{current_recipe.name}}" />
+            {% for message in get_flashed_messages(category_filter = ['error_recipe_name']) %}
+            {{message}}
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            <label>
+                Description:
+            </label>
+            <textarea type="text"  name="description" value="{{current_recipe.description}}" class="md-textarea form-control">{{current_recipe.description}}</textarea>
+            {% for message in get_flashed_messages(category_filter = ['error_recipe_description']) %}
+            {{message}}
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            <label>
+                Instructions:
+            </label>
+            <textarea type="text"  name="instructions" value="{{current_recipe.instructions}}" class="md-textarea form-control">{{current_recipe.instructions}}</textarea>
+            {% for message in get_flashed_messages(category_filter = ['error_recipe_instructions']) %}
+            {{message}}
+            {% endfor %}
+        </div>
+        <br>
+        <div class="md-form md-outline input-with-post-icon datepicker" id="customDays">
+            <label>
+                Date Cooked/Made:
+            </label>
+            <input type="date"  name="cooked_date" class="form-control" value="{{current_recipe.cooked_date}}"/>
+        </div>
+        <br>
+        <div>
+            <label>
+                Under 30 Minutes:
+            </label>
+            <div>
+                Yes: <input type="radio" name="under_30" value="1" {% if current_recipe.under_30==1 %} checked {% endif %} />
+                No: <input type="radio" name="under_30" value="0" {% if current_recipe.under_30==0 %} checked {% endif %} />
+                
+            
+            </div>
+            
+        </div>
+        <br>
+        <button class="btn btn-outline-success" data-mdb-ripple-color="dark">Submit</button>
+    </form>
+    <h1>
+    
+</body>
+</html>
